@@ -6,6 +6,14 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+        """ 
+    def go_to_url(self):
+        self.driver.get(page_url)
+        """
+
+    def open_start_url(self, page_url):
+        self.driver.get(page_url)
+
     def find_element(self, element):
         self.driver.find_element(*element)
     def click_on_element(self, element):
@@ -14,8 +22,6 @@ class BasePage:
     def add_value(self, element, value):
         self.driver.find_element(*element).send_keys(value)
 
-    def go_to_site(self, url):
-        self.driver.get(url)
 
     def scroll_to(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView();", self.driver.find_element(*element))

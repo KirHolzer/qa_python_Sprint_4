@@ -1,11 +1,15 @@
 from pages.base_page import BasePage
 from locators.base_page_locators import BasePageLocators
 from locators.main_page_locators import MainPaigeLocators
+from data.urls import TestUrls
 
 
 
 
 class MainPage(BasePage):
+
+    def open_main_url(self):
+        self.open_start_url(TestUrls.MainPageUrl)
 
     def click_yandex_logo_in_header(self):
         self.click_on_element(BasePageLocators.HEADER_YANDEX_LOGO)

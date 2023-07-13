@@ -1,6 +1,7 @@
 from faker import Faker
 
 
+
 class GeneratedData:
 
     def generate_first_name():
@@ -13,10 +14,10 @@ class GeneratedData:
         last_name = fake.last_name()
         return last_name
 
-    def generate_street_address():
+    def generate_delivery_address():
         fake = Faker('ru_RU')
-        street_address = f"{fake.street_name()} {str(random.randint(111, 999))}"
-        return street_address
+        delivery_address = f"{fake.street_name()} {str(fake.random_int(111, 999))}"
+        return delivery_address
 
     def generate_phone_number():
         fake = Faker()

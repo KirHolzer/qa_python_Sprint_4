@@ -16,3 +16,6 @@ class Answers:
 class Comments:
     first_comment = 'zmxnbcv'
     second_comment = 'zcxbv'
+
+class MetroStation:
+    station  = 'ВДНХ'
