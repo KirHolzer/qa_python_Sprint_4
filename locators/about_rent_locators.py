@@ -4,7 +4,7 @@ class AboutRentLocators:
 
     HEADING_ON_ABOUT_PAGE = By.XPATH, ".//div[text() = 'Про аренду']"
     HEADING_ORDER_CONFIRMED =By.XPATH, ".//div[text() = 'Заказ оформлен']"
-    LOOK_AT_STATUS = By.XPATH, ".//button[text() = 'Заказ оформлен']"
+    LOOK_AT_STATUS = By.XPATH, ".//button[text() = 'Посмотреть статус']"
 
     BACK_BUTTON = By.XPATH, ".//button[text() = 'Назад']"
     DELIVERY_DATE_INPUT = By.XPATH, ".//input[@placeholder = '* Когда привезти самокат']"

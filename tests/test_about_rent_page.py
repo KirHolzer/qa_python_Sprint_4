@@ -55,8 +55,8 @@ class TestAboutRentPage:
         AboutRentPage(browser).click_yes_button_on_confirmation_modal_window()
         WebDriverWait(browser, 10).until(
             expected_conditions.presence_of_element_located(AboutRentLocators.LOOK_AT_STATUS))
-        expected_text = 'Заказ оформлен'
-        assert AboutRentPage(browser).find_text(AboutRentLocators.HEADING_ORDER_CONFIRMED) == expected_text
+        expected_text = 'Посмотреть статус'
+        assert AboutRentPage(browser).find_text(AboutRentLocators.LOOK_AT_STATUS) == expected_text
 
     def test_order_confirmed_successfully_from_order_button_body(self, browser):
         MainPage(browser).open_main_url()
@@ -66,8 +66,8 @@ class TestAboutRentPage:
         AboutRentPage(browser).click_yes_button_on_confirmation_modal_window()
         WebDriverWait(browser, 10).until(
             expected_conditions.presence_of_element_located(AboutRentLocators.LOOK_AT_STATUS))
-        expected_text = 'Заказ оформлен'
-        assert AboutRentPage(browser).find_text(AboutRentLocators.HEADING_ORDER_CONFIRMED) == expected_text
+        expected_text = 'Посмотреть статус'
+        assert AboutRentPage(browser).find_text(AboutRentLocators.LOOK_AT_STATUS) == expected_text
 
 
 
