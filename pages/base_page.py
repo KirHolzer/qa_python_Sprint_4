@@ -1,5 +1,6 @@
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from locators.base_page_locators import BasePageLocators
 
 class BasePage:
 
@@ -14,10 +15,15 @@ class BasePage:
     def open_start_url(self, page_url):
         self.driver.get(page_url)
 
+
+
     def find_element(self, element):
         self.driver.find_element(*element)
     def click_on_element(self, element):
         self.driver.find_element(*element).click()
+
+    def accept_cookie(self):
+        self.click_on_element(BasePageLocators.ACCEPT_COOKIE_BUTTON)
 
     def add_value(self, element, value):
         self.driver.find_element(*element).send_keys(value)

@@ -4,6 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from locators.base_page_locators import BasePageLocators
 from locators.order_page_locators import OrderPageLocators
 from locators.main_page_locators import MainPaigeLocators
+from locators.about_rent_locators import AboutRentLocators
 from data.urls import TestUrls
 from data.data import Answers
 from pages.main_page import MainPage
@@ -25,9 +26,9 @@ class TestOrderPage:
         OrderPage(browser).fill_metro_field_by_click()
         OrderPage(browser).click_on_button_forward()
         WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.HEADING_ON_ABOUT_PAGE))
+            expected_conditions.presence_of_element_located(AboutRentLocators.HEADING_ON_ABOUT_PAGE))
         expected_text = 'Про аренду'
-        assert OrderPage(browser).find_text(OrderPageLocators.HEADING_ON_ABOUT_PAGE) == expected_text
+        assert OrderPage(browser).find_text(AboutRentLocators.HEADING_ON_ABOUT_PAGE) == expected_text
 
     def test_validate_error_by_input_first_name(self, browser):
         OrderPage(browser).open_order_url()

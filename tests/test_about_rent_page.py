@@ -25,9 +25,9 @@ class TestAboutRentPage:
         OrderPage(browser).open_about_rent_page()
         AboutRentPage(browser).click_on_back_button()
         WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.HEADING_ORDER_PAGE))
+            expected_conditions.presence_of_element_located(OrderPageLocators.HEADING_ON_ORDER_PAGE))
         expected_text = 'Для кого самокат'
-        assert AboutRentPage(browser).find_text(OrderPageLocators.HEADING_ORDER_PAGE) == expected_text
+        assert AboutRentPage(browser).find_text(OrderPageLocators.HEADING_ON_ORDER_PAGE) == expected_text
 
 
     def test_go_to_modal_window(self, browser):

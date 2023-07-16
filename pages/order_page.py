@@ -9,6 +9,7 @@ class OrderPage(BasePage):
 
     def open_order_url(self):
         self.open_start_url(TestUrls.OrderPageUrl)
+        self.accept_cookie()
 
 
     def click_on_scooter_in_header(self):

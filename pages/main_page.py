@@ -23,6 +23,8 @@ class MainPage(BasePage):
     def scroll_to_order_button_in_body(self):
         self.scroll_to(MainPaigeLocators.BODY_ORDER_BUTTON)
 
+
+
     def click_on_order_button_in_body(self):
         self.click_on_element(MainPaigeLocators.BODY_ORDER_BUTTON)
 
