@@ -1,9 +1,9 @@
-from pages.order_page import OrderPage
+from pages.base_page import BasePage
 from data.data import Comments
 from locators.locators import BasePageLocators, AboutRentLocators
 
 
-class AboutRentPage(OrderPage):
+class AboutRentPage(BasePage):
 
     def click_on_scooter_in_header(self):
         self.click_on_element(BasePageLocators.HEADER_SCOOTER_LOGO)
