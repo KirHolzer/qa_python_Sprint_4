@@ -5,7 +5,6 @@ from data.urls import TestUrls
 from data.generators import GeneratedData
 
 
-
 class OrderPage(BasePage):
 
     @allure.step('Открыть страницу заказа')

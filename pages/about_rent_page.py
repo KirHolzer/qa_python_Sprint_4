@@ -10,7 +10,6 @@ class AboutRentPage(OrderPage):
 
     def click_on_back_button(self):
         self.click_on_element(AboutRentLocators.BACK_BUTTON)
-    #def input_date(self):
 
     def choose_delivery_date(self):
         self.click_on_element(AboutRentLocators.DELIVERY_DATE_INPUT)
@@ -24,7 +23,6 @@ class AboutRentPage(OrderPage):
         self.click_on_element(AboutRentLocators.BLACK_COLOR)
 
     def fill_comment_for_courier(self):
-        #self.click_on_element(AboutRentLocators.COMMENT_TO_COURIER_INPUT)
         self.add_value(AboutRentLocators.COMMENT_TO_COURIER_INPUT, Comments.comments)
 
     def go_to_confirmation_modal_window(self):

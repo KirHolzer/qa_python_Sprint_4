@@ -7,8 +7,6 @@ from locators.locators import OrderPageLocators, BasePageLocators, MainPaigeLoca
 from data.urls import TestUrls
 from data.data import Answers
 from pages.main_page import MainPage
-import time
-
 
 
 class TestMainPage:
@@ -51,7 +49,7 @@ class TestMainPage:
         MainPage(browser).click_on_order_button_in_heeader()
         WebDriverWait(browser, 10).until(
             expected_conditions.presence_of_element_located(OrderPageLocators.HEADING_ON_ORDER_PAGE))
-        assert browser.current_url == TestUrls.OrderPageUrl  # РАБОТАЕТ !!!
+        assert browser.current_url == TestUrls.OrderPageUrl
 
     @allure.title('Проверка перехода на страницу заказа при клике на "Заказать" в body')
     @allure.description('Нажимаем на "Заказать" в body и преходим на страницу заказа')

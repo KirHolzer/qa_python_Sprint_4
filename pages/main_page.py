@@ -4,7 +4,6 @@ from locators.locators import BasePageLocators, MainPaigeLocators
 from data.urls import TestUrls
 
 
-
 class MainPage(BasePage):
 
     @allure.step('Открыть главную страницу')

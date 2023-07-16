@@ -22,7 +22,6 @@ class MainPaigeLocators:
 class OrderPageLocators:
 
     HEADING_ON_ORDER_PAGE = By.XPATH, ".//div[text() = 'Для кого самокат']"
-
     ORDER_CONTINUE_BUTTON = By.XPATH, ".//button[text() = 'Далее']"
     FIRST_NAME_INPUT = By.XPATH, ".//input[@placeholder='* Имя']"
     SECOND_NAME_INPUT = By.XPATH, ".//input[@placeholder='* Фамилия']"
@@ -30,18 +29,12 @@ class OrderPageLocators:
     PHONE_NUMBER_INPUT = By.XPATH, ".//input[@placeholder='* Телефон: на него позвонит курьер']"
     METRO_STATION_INPUT = By.XPATH, ".//input[@placeholder = '* Станция метро']"
     DIV_METRO_SECTION = By.XPATH, ".//div[@class = 'select-search__select']"
-    METRO_STATION_FOR_CLICK = By.XPATH, ".//button[@value = '9']" #".//ul/li//button[@value = '9']"
-
+    METRO_STATION_FOR_CLICK = By.XPATH, ".//button[@value = '9']"
     VALIDATE_ERROR_FIRST_NAME = By.XPATH, ".//div[text() = 'Введите корректное имя']"
     VALIDATE_ERROR_SECOND_NAME = By.XPATH, ".//div[text() = 'Введите корректную фамилию']"
     VALIDATE_ERROR_DELIVERY_ADDRESS = By.XPATH, ".//div[text() = 'Введите корректный адрес]"
     VALIDATE_ERROR_METRO_STATION = By.XPATH, ".//div[text() = 'Выберите станцию']"
     VALIDATE_ERROR_PHONE_NUMBER = By.XPATH, ".//div[text() = 'Введите корректный номер']"
-
-    """
-    STATION_LOCATOR = (By.XPATH, "//input[@placeholder='* Станция метро']")
-    REQUIRED_STATION_LOCATOR = (By.XPATH, "//ul/li/button[@value='103']")
-    """
 
 
 class AboutRentLocators:
@@ -49,7 +42,6 @@ class AboutRentLocators:
     HEADING_ON_ABOUT_PAGE = By.XPATH, ".//div[text() = 'Про аренду']"
     HEADING_ORDER_CONFIRMED =By.XPATH, ".//div[text() = 'Заказ оформлен']"
     LOOK_AT_STATUS = By.XPATH, ".//button[text() = 'Посмотреть статус']"
-
     BACK_BUTTON = By.XPATH, ".//button[text() = 'Назад']"
     DELIVERY_DATE_INPUT = By.XPATH, ".//input[@placeholder = '* Когда привезти самокат']"
     CHOSE_DATE = By.XPATH, ".//div[contains(@class, 'react-datepicker__day--today')]"
@@ -63,9 +55,3 @@ class AboutRentLocators:
     YES_BUTTON_MODAL = By.XPATH, ".//button[text() = 'Да']"
     NO_BUTTON_MODAL = By.XPATH, ".//button[text() = 'Да']"
 
-
-
-
-
-
-    # YaRuPopUP = By.ID, "distOverlayTitle"

@@ -8,7 +8,6 @@ from pages.order_page import OrderPage
 from pages.main_page import MainPage
 
 
-
 class TestAboutRentPage:
 
     @allure.title('Проверка перехода на главную страницу по клику на "Самокат" со страницы "Про аренду"')
