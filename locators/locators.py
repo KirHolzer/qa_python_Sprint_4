@@ -54,4 +54,3 @@ class AboutRentLocators:
     HEADING_CONFIRMATION_MODAL = By.XPATH, ".//div[text() = 'Хотите оформить заказ?']"
     YES_BUTTON_MODAL = By.XPATH, ".//button[text() = 'Да']"
     NO_BUTTON_MODAL = By.XPATH, ".//button[text() = 'Да']"
-

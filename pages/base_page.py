@@ -37,4 +37,3 @@ class BasePage:
 
     def find_elements_located(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(expected_conditions.presence_of_all_elements_located(locator))
-

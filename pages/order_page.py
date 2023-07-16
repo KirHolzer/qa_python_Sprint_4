@@ -38,4 +38,3 @@ class OrderPage(BasePage):
         self.fill_client_info()
         self.fill_metro_field_by_click()
         self.click_on_button_forward()
-

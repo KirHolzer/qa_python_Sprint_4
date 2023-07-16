@@ -44,4 +44,3 @@ class MainPage(BasePage):
     def get_answers(self):
         self.wait_element_visible(MainPaigeLocators.ANSWER)
         return self.find_element_located(MainPaigeLocators.ANSWER).text
-

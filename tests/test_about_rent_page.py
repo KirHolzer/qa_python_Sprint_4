@@ -75,4 +75,3 @@ class TestAboutRentPage:
             expected_conditions.presence_of_element_located(AboutRentLocators.LOOK_AT_STATUS))
         expected_text = 'Посмотреть статус'
         assert AboutRentPage(browser).find_text(AboutRentLocators.LOOK_AT_STATUS) == expected_text
-

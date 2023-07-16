@@ -78,4 +78,3 @@ class TestOrderPage:
             expected_conditions.presence_of_element_located(OrderPageLocators.VALIDATE_ERROR_PHONE_NUMBER))
         expected_text = 'Введите корректный номер'
         assert OrderPage(browser).find_text(OrderPageLocators.VALIDATE_ERROR_PHONE_NUMBER) == expected_text
-

@@ -39,4 +39,3 @@ class AboutRentPage(OrderPage):
     def click_yes_button_on_confirmation_modal_window(self):
         self.go_to_confirmation_modal_window()
         self.click_on_element(AboutRentLocators.YES_BUTTON_MODAL)
-

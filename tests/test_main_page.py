@@ -73,4 +73,3 @@ class TestMainPage:
         MainPage(browser).click_on_question(index)
         answer = MainPage(browser).get_answers()
         assert answer == Answers.answers[index]
-
