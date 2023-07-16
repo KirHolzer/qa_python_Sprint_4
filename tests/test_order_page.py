@@ -12,7 +12,7 @@ import time
 
 class TestOrderPage:
 
-    def test_click_on_scooter_in_header(self, browser):
+    def test_return_to_main_by_click_on_scooter_in_header(self, browser):
         OrderPage(browser).open_order_url()
         OrderPage(browser).click_on_scooter_in_header()
         WebDriverWait(browser, 10).until(

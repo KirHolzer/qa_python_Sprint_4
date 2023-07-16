@@ -31,6 +31,12 @@ class OrderPage(BasePage):
         self.click_on_element(OrderPageLocators.METRO_STATION_INPUT)
         self.add_value(OrderPageLocators.METRO_STATION_INPUT,MetroStation.station)
 
+    def open_about_rent_page(self):
+        self.open_order_url()
+        self.fill_client_info()
+        self.fill_metro_field_by_click()
+        self.click_on_button_forward()
+
 
 
 

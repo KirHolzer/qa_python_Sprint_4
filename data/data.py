@@ -14,8 +14,7 @@ class Answers:
 
 
 class Comments:
-    first_comment = 'zmxnbcv'
-    second_comment = 'zcxbv'
+    comments = 'sdbfvbsdnfv'
 
 class MetroStation:
     station  = 'ВДНХ'

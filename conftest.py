@@ -1,13 +1,13 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.firefox.options import Options
 from data.urls import TestUrls
+
 
 @pytest.fixture
 def browser():
-    options = ChromeOptions()
-    options.add_argument("--start-maximized")
-    driver = webdriver.Chrome(options=options)
-    #  driver.maximize_window()
+    driver = webdriver.Firefox()
+    driver.maximize_window()
     yield driver
     driver.quit()

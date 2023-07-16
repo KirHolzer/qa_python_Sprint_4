@@ -2,7 +2,8 @@ from selenium.webdriver.common.by import By
 
 class OrderPageLocators:
 
-    HEADING_ON_ORDER_PAGE = By.XPATH, ".//div[text() = 'Для кого самокат']"
+    HEADING_ORDER_PAGE = By.XPATH, ".//div[text() = 'Для кого самокат']"
+
     ORDER_CONTINUE_BUTTON = By.XPATH, ".//button[text() = 'Далее']"
     FIRST_NAME_INPUT = By.XPATH, ".//input[@placeholder='* Имя']"
     SECOND_NAME_INPUT = By.XPATH, ".//input[@placeholder='* Фамилия']"
