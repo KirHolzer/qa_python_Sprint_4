@@ -1,15 +1,8 @@
 from pages.order_page import OrderPage
 from data.data import Comments
-from locators.order_page_locators import OrderPageLocators
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 from locators.base_page_locators import BasePageLocators
-from locators.order_page_locators import OrderPageLocators
-from locators.base_page_locators import BasePageLocators
-from data.data import MetroStation
-from data.urls import TestUrls
-from data.generators import GeneratedData
 from locators.about_rent_locators import AboutRentLocators
+
 
 class AboutRentPage(OrderPage):
 
@@ -49,3 +42,4 @@ class AboutRentPage(OrderPage):
     def click_yes_button_on_confirmation_modal_window(self):
         self.go_to_confirmation_modal_window()
         self.click_on_element(AboutRentLocators.YES_BUTTON_MODAL)
+
