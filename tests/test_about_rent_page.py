@@ -1,13 +1,12 @@
 import allure
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from locators.order_page_locators import OrderPageLocators
-from locators.main_page_locators import MainPaigeLocators
+from locators.locators import OrderPageLocators, MainPaigeLocators, AboutRentLocators
 from data.urls import TestUrls
 from pages.about_rent_page import AboutRentPage
 from pages.order_page import OrderPage
 from pages.main_page import MainPage
-from locators.about_rent_locators import AboutRentLocators
+
 
 
 class TestAboutRentPage:

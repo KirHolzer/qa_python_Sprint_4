@@ -3,9 +3,7 @@ import pytest
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
-from locators.order_page_locators import OrderPageLocators
-from locators.base_page_locators import BasePageLocators
-from locators.main_page_locators import MainPaigeLocators
+from locators.locators import OrderPageLocators, BasePageLocators, MainPaigeLocators
 from data.urls import TestUrls
 from data.data import Answers
 from pages.main_page import MainPage

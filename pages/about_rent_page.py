@@ -1,7 +1,6 @@
 from pages.order_page import OrderPage
 from data.data import Comments
-from locators.base_page_locators import BasePageLocators
-from locators.about_rent_locators import AboutRentLocators
+from locators.locators import BasePageLocators, AboutRentLocators
 
 
 class AboutRentPage(OrderPage):
