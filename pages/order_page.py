@@ -27,11 +27,15 @@ class OrderPage(BasePage):
             expected_conditions.presence_of_element_located(OrderPageLocators.VALIDATE_ERROR_FIRST_NAME))
 
     @allure.step('Заполнить информацию о клиенте')
-    def fill_client_info(self):
-        self.add_value(OrderPageLocators.FIRST_NAME_INPUT, GeneratedData.generate_first_name())
-        self.add_value(OrderPageLocators.SECOND_NAME_INPUT, GeneratedData.generate_last_name())
-        self.add_value(OrderPageLocators.DELIVERY_ADDRESS_INPUT, GeneratedData.generate_delivery_address())
-        self.add_value(OrderPageLocators.PHONE_NUMBER_INPUT, GeneratedData.generate_phone_number())
+    def fill_client_info(self, first_name=GeneratedData.generate_first_name(),
+                         last_name=GeneratedData.generate_last_name(),
+                         delivery_address=GeneratedData.generate_delivery_address(),
+                         phone_number=GeneratedData.generate_phone_number()):
+
+        self.add_value(OrderPageLocators.FIRST_NAME_INPUT, first_name)
+        self.add_value(OrderPageLocators.SECOND_NAME_INPUT, last_name)
+        self.add_value(OrderPageLocators.DELIVERY_ADDRESS_INPUT, delivery_address)
+        self.add_value(OrderPageLocators.PHONE_NUMBER_INPUT, phone_number)
 
     @allure.step('Заполнить поле метро')
     def fill_metro_field_by_click(self):

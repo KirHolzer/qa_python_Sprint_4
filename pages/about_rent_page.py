@@ -36,8 +36,8 @@ class AboutRentPage(BasePage):
         self.click_on_element(AboutRentLocators.BLACK_COLOR)
 
     @allure.step('Заполнить поле ввода "Комментарий для курьера"')
-    def fill_comment_for_courier(self):
-        self.add_value(AboutRentLocators.COMMENT_TO_COURIER_INPUT, Comments.comments)
+    def fill_comment_for_courier(self, comment=Comments.comments):
+        self.add_value(AboutRentLocators.COMMENT_TO_COURIER_INPUT, comment)
 
     @allure.step('Кликнуть на кнопку "Заказать" , чтобы перейти на модальное окно подтверждения')
     def go_to_confirmation_modal_window(self, browser):

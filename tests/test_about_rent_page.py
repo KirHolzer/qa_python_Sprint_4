@@ -15,7 +15,8 @@ class TestAboutRentPage:
         OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.click_on_scooter_in_header(browser)
-        assert browser.current_url == TestUrls.MainPageUrl
+        assert browser.current_url == TestUrls.MainPageUrl, 'Произошёл некорректный редирект на главную ' \
+                                                                       'страницу "Яндекс.Самокат"'
 
     @allure.title('Проверка перехода на страницу заполнения клиентских данных по клику на кнопку "назад"')
     @allure.description('Нажимаем на кнопку "назад" и переходим на страницу заполнения клиентских данных')
@@ -23,7 +24,8 @@ class TestAboutRentPage:
         OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.click_on_back_button(browser)
-        assert about_rent_page.find_text(OrderPageLocators.HEADING_ON_ORDER_PAGE) == ExpectedText.heading_on_order_page
+        assert about_rent_page.find_text(OrderPageLocators.HEADING_ON_ORDER_PAGE) == ExpectedText.heading_on_order_page, 'Произошёл некорректный редирект при  ' \
+                                                                                                                        'нажатии назад'
 
     @allure.title('Проверка перехода на модальную страницу подтверждения заказа')
     @allure.description('Заполняем поля "Про аренду" , переходим на модальную страницу подтверждения заказа')
@@ -31,15 +33,17 @@ class TestAboutRentPage:
         OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.go_to_confirmation_modal_window(browser)
-        assert about_rent_page.find_text(AboutRentLocators.HEADING_CONFIRMATION_MODAL).strip() == ExpectedText.heading_on_confirmation_modal
+        assert about_rent_page.find_text(AboutRentLocators.HEADING_CONFIRMATION_MODAL).strip() == ExpectedText.heading_on_confirmation_modal, 'Произошёл некорректный редирект на модалку' \
+                                                                                                                                                'подтверждения заказа"'
 
     @allure.title('Проверка возврата на страницу "Про аренду" с модальноко окна подтверждения заказа')
-    @allure.description('Заполняем поля "Про аренду" , переходим на модальную окно подтверждения заказа')
+    @allure.description('Заполняем поля "Про аренду" , возвращаемся на экран "про Аренду"')
     def test_return_to_about_rent_from_modal(self, browser):
         OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.click_no_button_on_confirmation_modal_window(browser)
-        assert about_rent_page.find_text(AboutRentLocators.HEADING_ON_ABOUT_PAGE) == ExpectedText.heading_about_rent
+        assert about_rent_page.find_text(AboutRentLocators.HEADING_ON_ABOUT_PAGE) == ExpectedText.heading_about_rent, 'Произошёл некорректный возврат с  ' \
+                                                                                                                            'с модального окна подтверждения"'
 
     @allure.title('Проверка оформления заказа через кнопку "Заказать" в правом верхнем углу главной страницы')
     @allure.description('Нажимаем на кнопку "Заказать" в правом верхнем углу страницы и проходим весь положительный '
@@ -52,7 +56,8 @@ class TestAboutRentPage:
         main_page.click_on_order_button_in_heeader(browser)
         order_page.open_about_rent_page(browser)
         about_rent_page.click_yes_button_on_confirmation_modal_window(browser)
-        assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == ExpectedText.heading_look_at_status
+        assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == ExpectedText.heading_look_at_status, 'Не удалось проверить статус заказа, поскольку номер заказа в урле ' \
+                                                                                                                    'отсутствует либо не соответствует оформленному заказу'
 
     @allure.title('Проверка оформления заказа через кнопку "Заказать" в нижней части главной страницы')
     @allure.description('Нажимаем на кнопку "Заказать" в нижней части главной страницы и проходим весь положительный '
@@ -66,4 +71,5 @@ class TestAboutRentPage:
         main_page.click_on_order_button_in_body(browser)
         order_page.open_about_rent_page(browser)
         about_rent_page.click_yes_button_on_confirmation_modal_window(browser)
-        assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == ExpectedText.heading_look_at_status
+        assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == ExpectedText.heading_look_at_status, 'Не удалось проверить статус заказа, поскольку номер заказа в урле ' \
+                                                                                                                     'отсутствует либо не соответствует оформленному заказу'

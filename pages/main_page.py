@@ -19,10 +19,10 @@ class MainPage(BasePage):
             expected_conditions.visibility_of_element_located(BasePageLocators.COOKIE))
 
     @allure.step('Кликнуть по логотипу в хедере')
-    def click_yandex_logo_in_header(self, browser):
+    def click_yandex_logo_in_header(self):
         self.click_on_element(BasePageLocators.HEADER_YANDEX_LOGO)
         self.switch_to_new_window()
-        WebDriverWait(browser, 10).until(
+        WebDriverWait(self.driver, 10).until(
             expected_conditions.presence_of_element_located(MainPaigeLocators.DZEN_LOGO))
 
     @allure.step('Cokies пропали')

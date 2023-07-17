@@ -14,4 +14,4 @@ class TestMostAskedQuestions:
         main_page.scroll_to_question_section()
         main_page.click_on_question(index)
         answer = main_page.get_answers()
-        assert answer == Answers.answers[index]
+        assert answer == Answers.answers[index], f'Получен некорректный текст ответа. Ожидалось: {Answers.answers[index]}'

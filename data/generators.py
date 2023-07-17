@@ -1,7 +1,6 @@
 from faker import Faker
 
 
-
 class GeneratedData:
 
     def generate_first_name():
