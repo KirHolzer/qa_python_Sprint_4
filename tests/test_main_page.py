@@ -15,7 +15,7 @@ class TestMainPage:
     @allure.description('Нажимаем на кнопку "Да все привыкли" в правом нижнем углу страницы и проверям что блок куки принят и пропал')
     def test_accept_cookies_succsesfully(self, browser):
         MainPage(browser).open_main_url()
-        MainPage(browser).accept_cookie()
+        MainPage(browser).close_cookie(browser)
         WebDriverWait(browser, 10).until(
             expected_conditions.invisibility_of_element_located(BasePageLocators.COOKIE)
         )

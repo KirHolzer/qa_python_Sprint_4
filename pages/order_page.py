@@ -40,8 +40,8 @@ class OrderPage(BasePage):
         self.click_on_element(OrderPageLocators.METRO_STATION_FOR_CLICK)
 
     @allure.step('Открыть страницу "Про аренду"')
-    def open_about_rent_page(self):
+    def open_about_rent_page(self, browser):
         self.open_order_url()
         self.fill_client_info()
         self.fill_metro_field_by_click()
-        self.click_on_button_forward()
+        self.click_on_button_forward(browser)

@@ -12,10 +12,16 @@ class MainPage(BasePage):
     def open_main_url(self):
         self.open_start_url(TestUrls.MainPageUrl)
 
+    @allure.step('Закрыть cookie на главной странице')
+    def close_cookie(self, browser):
+        self.accept_cookie(BasePageLocators.ACCEPT_COOKIE_BUTTON)
+        WebDriverWait(browser, 10).until(
+            expected_conditions.invisibility_of_element_located(BasePageLocators.COOKIE))
+
     @allure.step('Кликнуть по логотипу в хедере')
     def click_yandex_logo_in_header(self, browser):
         self.click_on_element(BasePageLocators.HEADER_YANDEX_LOGO)
-        browser.switch_to.window(browser.window_handles[-1])
+        self.switch_to_new_window()
         WebDriverWait(browser, 10).until(
             expected_conditions.presence_of_element_located(MainPaigeLocators.DZEN_LOGO))
 

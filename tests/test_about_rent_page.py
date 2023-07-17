@@ -11,7 +11,7 @@ class TestAboutRentPage:
     @allure.title('Проверка перехода на главную страницу по клику на "Самокат" со страницы "Про аренду"')
     @allure.description('Нажимаем на логотип "Самоката" и переходим на главную страницу')
     def test_return_to_main_by_click_on_scooter_in_header(self, browser):
-        OrderPage(browser).open_about_rent_page()
+        OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.click_on_scooter_in_header(browser)
         assert browser.current_url == TestUrls.MainPageUrl
@@ -19,7 +19,7 @@ class TestAboutRentPage:
     @allure.title('Проверка перехода на страницу заполнения клиентских данных по клику на кнопку "назад"')
     @allure.description('Нажимаем на кнопку "назад" и переходим на страницу заполнения клиентских данных')
     def test_click_on_back_button(self, browser):
-        OrderPage(browser).open_about_rent_page()
+        OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.click_on_back_button(browser)
         expected_text = 'Для кого самокат'
@@ -28,7 +28,7 @@ class TestAboutRentPage:
     @allure.title('Проверка перехода на модальную страницу подтверждения заказа')
     @allure.description('Заполняем поля "Про аренду" , переходим на модальную страницу подтверждения заказа')
     def test_go_to_modal_window(self, browser):
-        OrderPage(browser).open_about_rent_page()
+        OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.go_to_confirmation_modal_window(browser)
         expected_text = 'Хотите оформить заказ?'
@@ -37,7 +37,7 @@ class TestAboutRentPage:
     @allure.title('Проверка возврата на страницу "Про аренду" с модальноко окна подтверждения заказа')
     @allure.description('Заполняем поля "Про аренду" , переходим на модальную окно подтверждения заказа')
     def test_return_to_about_rent_from_modal(self, browser):
-        OrderPage(browser).open_about_rent_page()
+        OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.click_no_button_on_confirmation_modal_window(browser)
         expected_text = 'Про аренду'
@@ -47,10 +47,12 @@ class TestAboutRentPage:
     @allure.description('Нажимаем на кнопку "Заказать" в правом верхнем углу страницы и проходим весь положительный '
                         'флоу оформления заказа')
     def test_order_confirmed_successfully_from_order_button_header(self, browser):
-        MainPage(browser).open_main_url()
-        MainPage(browser).click_on_order_button_in_heeader()
-        OrderPage(browser).open_about_rent_page()
+        main_page = MainPage(browser)
+        order_page = OrderPage(browser)
         about_rent_page = AboutRentPage(browser)
+        main_page.open_main_url()
+        main_page.click_on_order_button_in_heeader(browser)
+        order_page.open_about_rent_page(browser)
         about_rent_page.click_yes_button_on_confirmation_modal_window(browser)
         expected_text = 'Посмотреть статус'
         assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == expected_text
@@ -59,11 +61,13 @@ class TestAboutRentPage:
     @allure.description('Нажимаем на кнопку "Заказать" в нижней части главной страницы и проходим весь положительный '
                         'флоу оформления заказа')
     def test_order_confirmed_successfully_from_order_button_body(self, browser):
-        MainPage(browser).open_main_url()
-        MainPage(browser).scroll_to_order_button_in_body()
-        MainPage(browser).click_on_order_button_in_body()
-        OrderPage(browser).open_about_rent_page()
+        main_page = MainPage(browser)
+        order_page = OrderPage(browser)
         about_rent_page = AboutRentPage(browser)
+        main_page.open_main_url()
+        main_page.scroll_to_order_button_in_body(browser)
+        main_page.click_on_order_button_in_body(browser)
+        order_page.open_about_rent_page(browser)
         about_rent_page.click_yes_button_on_confirmation_modal_window(browser)
         expected_text = 'Посмотреть статус'
         assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == expected_text
