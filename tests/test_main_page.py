@@ -8,7 +8,7 @@ from data.urls import TestUrls
 from data.data import Answers
 from pages.main_page import MainPage
 
-
+@allure.feature('Действия на главной странице')
 class TestMainPage:
 
     @allure.title('Кнопка cookie "Да все привыкли"')

@@ -6,6 +6,7 @@ from data.urls import TestUrls
 from pages.order_page import OrderPage
 
 
+@allure.feature('Действия на странице заказа "Для кого самокат" ')
 class TestOrderPage:
 
     @allure.title('Проверка перехода на главную страницу по клику на "Самокат" со страницы заказа')

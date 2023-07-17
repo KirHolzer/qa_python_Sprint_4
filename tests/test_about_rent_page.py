@@ -7,7 +7,7 @@ from pages.about_rent_page import AboutRentPage
 from pages.order_page import OrderPage
 from pages.main_page import MainPage
 
-
+@allure.feature('Действия на странице заказа "Про аренду". Полный сценария заказа')
 class TestAboutRentPage:
 
     @allure.title('Проверка перехода на главную страницу по клику на "Самокат" со страницы "Про аренду"')
