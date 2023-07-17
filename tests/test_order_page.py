@@ -9,15 +9,6 @@ from pages.order_page import OrderPage
 @allure.feature('Действия на странице заказа "Для кого самокат" ')
 class TestOrderPage:
 
-    @allure.title('Проверка перехода на главную страницу по клику на "Самокат" со страницы заказа')
-    @allure.description('Нажимаем на логотип "Самоката" и переходим на главную страницу')
-    def test_return_to_main_by_click_on_scooter_in_header(self, browser):
-        order_page = OrderPage(browser)
-        order_page.open_order_url()
-        order_page.click_on_scooter_in_header()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(MainPaigeLocators.MAIN_PAGE_HEADING))
-        assert browser.current_url == TestUrls.MainPageUrl
 
     @allure.title('Проверка перехода на страницу "Про аренду" по клику на кнопку "Далее" после успешного заполнения клиентскими данными')
     @allure.description('Заполнить данные клиента и перейти на страницу "Про аренду"')
@@ -26,9 +17,7 @@ class TestOrderPage:
         order_page.open_order_url()
         order_page.fill_client_info()
         order_page.fill_metro_field_by_click()
-        order_page.click_on_button_forward()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(AboutRentLocators.HEADING_ON_ABOUT_PAGE))
+        order_page.click_on_button_forward(browser)
         expected_text = 'Про аренду'
         assert order_page.find_text(AboutRentLocators.HEADING_ON_ABOUT_PAGE) == expected_text
 
@@ -37,9 +26,8 @@ class TestOrderPage:
     def test_validate_error_by_input_first_name(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
-        order_page.click_on_button_forward()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.VALIDATE_ERROR_FIRST_NAME))
+        order_page.click_on_button_forward_for_validate_error(browser)
+
         expected_text = 'Введите корректное имя'
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_FIRST_NAME) == expected_text
 
@@ -48,9 +36,7 @@ class TestOrderPage:
     def test_validate_error_by_input_second_name(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
-        order_page.click_on_button_forward()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.VALIDATE_ERROR_SECOND_NAME))
+        order_page.click_on_button_forward_for_validate_error(browser)
         expected_text = 'Введите корректную фамилию'
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_SECOND_NAME) == expected_text
 
@@ -59,9 +45,7 @@ class TestOrderPage:
     def test_validate_error_by_input_delivery_address(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
-        order_page.click_on_button_forward()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.VALIDATE_ERROR_FIRST_NAME))
+        order_page.click_on_button_forward_for_validate_error(browser)
         expected_text = 'Введите корректный адрес'
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_DELIVERY_ADDRESS) == expected_text
 
@@ -70,9 +54,7 @@ class TestOrderPage:
     def test_validate_error_by_input_metro_station(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
-        order_page.click_on_button_forward()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.VALIDATE_ERROR_METRO_STATION))
+        order_page.click_on_button_forward_for_validate_error(browser)
         expected_text = 'Выберите станцию'
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_METRO_STATION) == expected_text
 
@@ -81,8 +63,6 @@ class TestOrderPage:
     def test_validate_error_by_input_phone_number(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
-        order_page.click_on_button_forward()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.VALIDATE_ERROR_PHONE_NUMBER))
+        order_page.click_on_button_forward_for_validate_error(browser)
         expected_text = 'Введите корректный номер'
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_PHONE_NUMBER) == expected_text

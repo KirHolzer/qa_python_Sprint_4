@@ -1,7 +1,5 @@
 import allure
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
-from locators.locators import OrderPageLocators, MainPaigeLocators, AboutRentLocators
+from locators.locators import OrderPageLocators, AboutRentLocators
 from data.urls import TestUrls
 from pages.about_rent_page import AboutRentPage
 from pages.order_page import OrderPage
@@ -15,9 +13,7 @@ class TestAboutRentPage:
     def test_return_to_main_by_click_on_scooter_in_header(self, browser):
         OrderPage(browser).open_about_rent_page()
         about_rent_page = AboutRentPage(browser)
-        about_rent_page.click_on_scooter_in_header()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(MainPaigeLocators.MAIN_PAGE_HEADING))
+        about_rent_page.click_on_scooter_in_header(browser)
         assert browser.current_url == TestUrls.MainPageUrl
 
     @allure.title('Проверка перехода на страницу заполнения клиентских данных по клику на кнопку "назад"')
@@ -25,9 +21,7 @@ class TestAboutRentPage:
     def test_click_on_back_button(self, browser):
         OrderPage(browser).open_about_rent_page()
         about_rent_page = AboutRentPage(browser)
-        about_rent_page.click_on_back_button()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.HEADING_ON_ORDER_PAGE))
+        about_rent_page.click_on_back_button(browser)
         expected_text = 'Для кого самокат'
         assert about_rent_page.find_text(OrderPageLocators.HEADING_ON_ORDER_PAGE) == expected_text
 
@@ -36,9 +30,7 @@ class TestAboutRentPage:
     def test_go_to_modal_window(self, browser):
         OrderPage(browser).open_about_rent_page()
         about_rent_page = AboutRentPage(browser)
-        about_rent_page.go_to_confirmation_modal_window()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(AboutRentLocators.YES_BUTTON_MODAL))
+        about_rent_page.go_to_confirmation_modal_window(browser)
         expected_text = 'Хотите оформить заказ?'
         assert about_rent_page.find_text(AboutRentLocators.HEADING_CONFIRMATION_MODAL).strip() == expected_text
 
@@ -47,9 +39,7 @@ class TestAboutRentPage:
     def test_return_to_about_rent_from_modal(self, browser):
         OrderPage(browser).open_about_rent_page()
         about_rent_page = AboutRentPage(browser)
-        about_rent_page.click_no_button_on_confirmation_modal_window()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(AboutRentLocators.BODY_ORDER_BUTTON))
+        about_rent_page.click_no_button_on_confirmation_modal_window(browser)
         expected_text = 'Про аренду'
         assert about_rent_page.find_text(AboutRentLocators.HEADING_ON_ABOUT_PAGE) == expected_text
 
@@ -61,9 +51,7 @@ class TestAboutRentPage:
         MainPage(browser).click_on_order_button_in_heeader()
         OrderPage(browser).open_about_rent_page()
         about_rent_page = AboutRentPage(browser)
-        about_rent_page.click_yes_button_on_confirmation_modal_window()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(AboutRentLocators.LOOK_AT_STATUS))
+        about_rent_page.click_yes_button_on_confirmation_modal_window(browser)
         expected_text = 'Посмотреть статус'
         assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == expected_text
 
@@ -76,8 +64,6 @@ class TestAboutRentPage:
         MainPage(browser).click_on_order_button_in_body()
         OrderPage(browser).open_about_rent_page()
         about_rent_page = AboutRentPage(browser)
-        about_rent_page.click_yes_button_on_confirmation_modal_window()
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(AboutRentLocators.LOOK_AT_STATUS))
+        about_rent_page.click_yes_button_on_confirmation_modal_window(browser)
         expected_text = 'Посмотреть статус'
         assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == expected_text

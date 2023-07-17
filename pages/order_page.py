@@ -1,6 +1,8 @@
 import allure
 from pages.base_page import BasePage
-from locators.locators import OrderPageLocators, BasePageLocators
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+from locators.locators import OrderPageLocators, MainPaigeLocators, AboutRentLocators, BasePageLocators
 from data.urls import TestUrls
 from data.generators import GeneratedData
 
@@ -12,13 +14,18 @@ class OrderPage(BasePage):
         self.open_start_url(TestUrls.OrderPageUrl)
         self.accept_cookie()
 
-    @allure.step('Кликнуть на логотип самоката в хедере')
-    def click_on_scooter_in_header(self):
-        self.click_on_element(BasePageLocators.HEADER_SCOOTER_LOGO)
 
     @allure.step('Кликнуть на кнопку "Далее"')
-    def click_on_button_forward(self):
+    def click_on_button_forward(self, browser):
         self.click_on_element(OrderPageLocators.ORDER_CONTINUE_BUTTON)
+        WebDriverWait(browser, 10).until(
+            expected_conditions.presence_of_element_located(AboutRentLocators.HEADING_ON_ABOUT_PAGE))
+
+    @allure.step('Кликнуть на кнопку "Далее" не заполняя поля ')
+    def click_on_button_forward_for_validate_error(self, browser):
+        self.click_on_element(OrderPageLocators.ORDER_CONTINUE_BUTTON)
+        WebDriverWait(browser, 10).until(
+            expected_conditions.presence_of_element_located(OrderPageLocators.VALIDATE_ERROR_FIRST_NAME))
 
     @allure.step('Заполнить информацию о клиенте')
     def fill_client_info(self):
