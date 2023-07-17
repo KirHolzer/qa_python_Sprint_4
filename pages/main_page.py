@@ -15,8 +15,8 @@ class MainPage(BasePage):
     @allure.step('Закрыть cookie на главной странице')
     def close_cookie(self, browser):
         self.accept_cookie(BasePageLocators.ACCEPT_COOKIE_BUTTON)
-        WebDriverWait(browser, 10).until(
-            expected_conditions.invisibility_of_element_located(BasePageLocators.COOKIE))
+        WebDriverWait(browser, 10).until_not(
+            expected_conditions.visibility_of_element_located(BasePageLocators.COOKIE))
 
     @allure.step('Кликнуть по логотипу в хедере')
     def click_yandex_logo_in_header(self, browser):
@@ -24,8 +24,10 @@ class MainPage(BasePage):
         self.switch_to_new_window()
         WebDriverWait(browser, 10).until(
             expected_conditions.presence_of_element_located(MainPaigeLocators.DZEN_LOGO))
-    def is_cookie_visible(self):
-        return self.is_element_visible_in_browser(BasePageLocators.COOKIE)
+
+    @allure.step('Cokies пропали')
+    def is_cookie_not_visible(self):
+        return self.find_element_not_located(BasePageLocators.COOKIE)
 
     @allure.step('Кликнуть по логотипу самоката в хедере')
     def click_on_scooter_in_header(self):

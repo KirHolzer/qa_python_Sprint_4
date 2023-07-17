@@ -19,8 +19,9 @@ class BasePage:
     def accept_cookie(self, element):
         self.click_on_element(element)
 
-    def is_element_visible_in_browser(self, element):
-        self.driver.is_element_visible(element)
+    def wait_element_visible(self, element, time=10):
+        WebDriverWait(self.driver, time).until(
+            expected_conditions.visibility_of_element_located(element))
 
     def switch_to_new_window(self):
         self.driver.switch_to.window(self.driver.window_handles[-1])
@@ -34,11 +35,12 @@ class BasePage:
     def find_text(self, element):
         return self.find_element(element).text
 
-    def wait_element_visible(self, element):
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(element))
 
     def find_element_located(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(expected_conditions.presence_of_element_located(locator))
+
+    def find_element_not_located(self, locator, time=10):
+        return WebDriverWait(self.driver, time).until_not(expected_conditions.presence_of_element_located(locator))
 
     def find_elements_located(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(expected_conditions.presence_of_all_elements_located(locator))

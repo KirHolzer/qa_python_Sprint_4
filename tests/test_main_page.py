@@ -12,16 +12,10 @@ class TestMainPage:
     @allure.title('Кнопка cookie "Да все привыкли"')
     @allure.description('Нажимаем на кнопку "Да все привыкли" в правом нижнем углу страницы и проверям что блок куки принят и пропал')
     def test_accept_cookies_succsesfully(self, browser):
-        MainPage(browser).open_main_url()
-        MainPage(browser).close_cookie(browser)
-        WebDriverWait(browser, 10).until(
-            expected_conditions.invisibility_of_element_located(BasePageLocators.COOKIE)
-        )
-        try:
-            browser.find_element(*BasePageLocators.ACCEPT_COOKIE_BUTTON)
-            assert False, "Элемент 'ACCEPT_COOKIE_BUTTON' найден"
-        except NoSuchElementException:
-            assert True
+        main_page = MainPage(browser)
+        main_page.open_main_url()
+        main_page.close_cookie(browser)
+        assert main_page.is_cookie_not_visible()
 
     @allure.title('Проверка перехода из главной страницы на старницу "Яндекса" по клику на логотип ')
     @allure.description('Нажимаем на логотип "Яндекса" в хедере и переходим на страницу яндекса ')
