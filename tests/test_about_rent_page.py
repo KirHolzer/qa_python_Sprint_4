@@ -4,6 +4,7 @@ from data.urls import TestUrls
 from pages.about_rent_page import AboutRentPage
 from pages.order_page import OrderPage
 from pages.main_page import MainPage
+from data.data import ExpectedText
 
 @allure.feature('Действия на странице заказа "Про аренду". Полный сценария заказа')
 class TestAboutRentPage:
@@ -22,8 +23,7 @@ class TestAboutRentPage:
         OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.click_on_back_button(browser)
-        expected_text = 'Для кого самокат'
-        assert about_rent_page.find_text(OrderPageLocators.HEADING_ON_ORDER_PAGE) == expected_text
+        assert about_rent_page.find_text(OrderPageLocators.HEADING_ON_ORDER_PAGE) == ExpectedText.heading_on_order_page
 
     @allure.title('Проверка перехода на модальную страницу подтверждения заказа')
     @allure.description('Заполняем поля "Про аренду" , переходим на модальную страницу подтверждения заказа')
@@ -31,8 +31,7 @@ class TestAboutRentPage:
         OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.go_to_confirmation_modal_window(browser)
-        expected_text = 'Хотите оформить заказ?'
-        assert about_rent_page.find_text(AboutRentLocators.HEADING_CONFIRMATION_MODAL).strip() == expected_text
+        assert about_rent_page.find_text(AboutRentLocators.HEADING_CONFIRMATION_MODAL).strip() == ExpectedText.heading_on_confirmation_modal
 
     @allure.title('Проверка возврата на страницу "Про аренду" с модальноко окна подтверждения заказа')
     @allure.description('Заполняем поля "Про аренду" , переходим на модальную окно подтверждения заказа')
@@ -40,8 +39,7 @@ class TestAboutRentPage:
         OrderPage(browser).open_about_rent_page(browser)
         about_rent_page = AboutRentPage(browser)
         about_rent_page.click_no_button_on_confirmation_modal_window(browser)
-        expected_text = 'Про аренду'
-        assert about_rent_page.find_text(AboutRentLocators.HEADING_ON_ABOUT_PAGE) == expected_text
+        assert about_rent_page.find_text(AboutRentLocators.HEADING_ON_ABOUT_PAGE) == ExpectedText.heading_about_rent
 
     @allure.title('Проверка оформления заказа через кнопку "Заказать" в правом верхнем углу главной страницы')
     @allure.description('Нажимаем на кнопку "Заказать" в правом верхнем углу страницы и проходим весь положительный '
@@ -54,8 +52,7 @@ class TestAboutRentPage:
         main_page.click_on_order_button_in_heeader(browser)
         order_page.open_about_rent_page(browser)
         about_rent_page.click_yes_button_on_confirmation_modal_window(browser)
-        expected_text = 'Посмотреть статус'
-        assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == expected_text
+        assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == ExpectedText.heading_look_at_status
 
     @allure.title('Проверка оформления заказа через кнопку "Заказать" в нижней части главной страницы')
     @allure.description('Нажимаем на кнопку "Заказать" в нижней части главной страницы и проходим весь положительный '
@@ -69,5 +66,4 @@ class TestAboutRentPage:
         main_page.click_on_order_button_in_body(browser)
         order_page.open_about_rent_page(browser)
         about_rent_page.click_yes_button_on_confirmation_modal_window(browser)
-        expected_text = 'Посмотреть статус'
-        assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == expected_text
+        assert about_rent_page.find_text(AboutRentLocators.LOOK_AT_STATUS) == ExpectedText.heading_look_at_status

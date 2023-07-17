@@ -1,6 +1,5 @@
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from locators.locators import BasePageLocators
 
 
 class BasePage:
@@ -19,6 +18,9 @@ class BasePage:
 
     def accept_cookie(self, element):
         self.click_on_element(element)
+
+    def is_element_visible_in_browser(self, element):
+        self.driver.is_element_visible(element)
 
     def switch_to_new_window(self):
         self.driver.switch_to.window(self.driver.window_handles[-1])

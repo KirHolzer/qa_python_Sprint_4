@@ -4,7 +4,7 @@ from locators.locators import BasePageLocators, MainPaigeLocators, OrderPageLoca
 from data.urls import TestUrls
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.common.exceptions import NoSuchElementException
+
 
 class MainPage(BasePage):
 
@@ -24,6 +24,8 @@ class MainPage(BasePage):
         self.switch_to_new_window()
         WebDriverWait(browser, 10).until(
             expected_conditions.presence_of_element_located(MainPaigeLocators.DZEN_LOGO))
+    def is_cookie_visible(self):
+        return self.is_element_visible_in_browser(BasePageLocators.COOKIE)
 
     @allure.step('Кликнуть по логотипу самоката в хедере')
     def click_on_scooter_in_header(self):

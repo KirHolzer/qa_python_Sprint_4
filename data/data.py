@@ -17,4 +17,16 @@ class Comments:
     comments = 'sdbfvbsdnfv'
 
 class MetroStation:
-    station  = 'ВДНХ'
+    station = 'ВДНХ'
+
+class ExpectedText:
+    heading_on_order_page = 'Для кого самокат'
+    heading_on_confirmation_modal = 'Хотите оформить заказ?'
+    heading_about_rent = 'Про аренду'
+    heading_look_at_status = 'Посмотреть статус'
+    messege_validate_first_name = 'Введите корректное имя'
+    messege_validate_second_name = 'Введите корректную фамилию'
+    messege_validate_delivery_address = 'Введите корректный адрес'
+    messege_validate_metro_station = 'Выберите станцию'
+    messege_validate_phone_number = 'Введите корректный номер'
+    messege_validate_first_name = 'Введите корректное имя'

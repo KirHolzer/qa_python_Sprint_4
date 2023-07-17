@@ -2,7 +2,7 @@ import allure
 from pages.base_page import BasePage
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from locators.locators import OrderPageLocators, MainPaigeLocators, AboutRentLocators, BasePageLocators
+from locators.locators import OrderPageLocators, AboutRentLocators
 from data.urls import TestUrls
 from data.generators import GeneratedData
 
@@ -12,7 +12,6 @@ class OrderPage(BasePage):
     @allure.step('Открыть страницу заказа')
     def open_order_url(self):
         self.open_start_url(TestUrls.OrderPageUrl)
-        self.accept_cookie()
 
 
     @allure.step('Кликнуть на кнопку "Далее"')

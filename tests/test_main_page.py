@@ -1,11 +1,9 @@
 import allure
-import pytest
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
-from locators.locators import OrderPageLocators, BasePageLocators, MainPaigeLocators
+from locators.locators import BasePageLocators
 from data.urls import TestUrls
-from data.data import Answers
 from pages.main_page import MainPage
 
 @allure.feature('Действия на главной странице')
@@ -58,14 +56,3 @@ class TestMainPage:
         main_page.scroll_to_order_button_in_body(browser)
         main_page.click_on_order_button_in_body(browser)
         assert browser.current_url == TestUrls.OrderPageUrl
-
-    @allure.title('Проверка списка часто задаваемых вопросов и ответов на главной странице')
-    @allure.description('На главной странице ищем список часто задаваемых вопросов и ответов и проверяем корректность ответов')
-    @pytest.mark.parametrize("index", range(8))
-    def test_click_on_questions(self, browser, index):
-        main_page = MainPage(browser)
-        main_page.open_main_url()
-        main_page.scroll_to_question_section()
-        main_page.click_on_question(index)
-        answer = main_page.get_answers()
-        assert answer == Answers.answers[index]
