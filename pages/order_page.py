@@ -1,7 +1,5 @@
 import allure
 from pages.base_page import BasePage
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 from locators.locators import OrderPageLocators, AboutRentLocators
 from data.urls import TestUrls
 from data.generators import GeneratedData
@@ -15,16 +13,14 @@ class OrderPage(BasePage):
 
 
     @allure.step('Кликнуть на кнопку "Далее"')
-    def click_on_button_forward(self, browser):
+    def click_on_button_forward(self):
         self.click_on_element(OrderPageLocators.ORDER_CONTINUE_BUTTON)
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(AboutRentLocators.HEADING_ON_ABOUT_PAGE))
+        self.find_element_located(AboutRentLocators.HEADING_ON_ABOUT_PAGE)
 
     @allure.step('Кликнуть на кнопку "Далее" не заполняя поля ')
-    def click_on_button_forward_for_validate_error(self, browser):
+    def click_on_button_forward_for_validate_error(self):
         self.click_on_element(OrderPageLocators.ORDER_CONTINUE_BUTTON)
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.VALIDATE_ERROR_FIRST_NAME))
+        self.find_element_located(OrderPageLocators.VALIDATE_ERROR_FIRST_NAME)
 
     @allure.step('Заполнить информацию о клиенте')
     def fill_client_info(self, first_name=GeneratedData.generate_first_name(),
@@ -43,8 +39,8 @@ class OrderPage(BasePage):
         self.click_on_element(OrderPageLocators.METRO_STATION_FOR_CLICK)
 
     @allure.step('Открыть страницу "Про аренду"')
-    def open_about_rent_page(self, browser):
+    def open_about_rent_page(self):
         self.open_order_url()
         self.fill_client_info()
         self.fill_metro_field_by_click()
-        self.click_on_button_forward(browser)
+        self.click_on_button_forward()

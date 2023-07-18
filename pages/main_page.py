@@ -2,8 +2,6 @@ import allure
 from pages.base_page import BasePage
 from locators.locators import BasePageLocators, MainPaigeLocators, OrderPageLocators
 from data.urls import TestUrls
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 
 
 class MainPage(BasePage):
@@ -13,17 +11,17 @@ class MainPage(BasePage):
         self.open_start_url(TestUrls.MainPageUrl)
 
     @allure.step('Закрыть cookie на главной странице')
-    def close_cookie(self, browser):
+    def close_cookie(self):
         self.accept_cookie(BasePageLocators.ACCEPT_COOKIE_BUTTON)
-        WebDriverWait(browser, 10).until_not(
-            expected_conditions.visibility_of_element_located(BasePageLocators.COOKIE))
+        self.find_element_not_located(BasePageLocators.COOKIE)
+
 
     @allure.step('Кликнуть по логотипу в хедере')
     def click_yandex_logo_in_header(self):
         self.click_on_element(BasePageLocators.HEADER_YANDEX_LOGO)
         self.switch_to_new_window()
-        WebDriverWait(self.driver, 10).until(
-            expected_conditions.presence_of_element_located(MainPaigeLocators.DZEN_LOGO))
+        self.find_element_located(MainPaigeLocators.DZEN_LOGO)
+
 
     @allure.step('Cokies пропали')
     def is_cookie_not_visible(self):
@@ -34,22 +32,21 @@ class MainPage(BasePage):
         self.click_on_element(BasePageLocators.HEADER_SCOOTER_LOGO)
 
     @allure.step('Кликнтуь по кнопке "Заказать" в хедере')
-    def click_on_order_button_in_heeader(self, browser):
+    def click_on_order_button_in_header(self):
         self.click_on_element(BasePageLocators.HEADER_ORDER_BUTTON)
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.HEADING_ON_ORDER_PAGE))
+        self.find_element_located(OrderPageLocators.HEADING_ON_ORDER_PAGE)
 
     @allure.step('Проскролить до кнопки заказать в body')
-    def scroll_to_order_button_in_body(self, browser):
+    def scroll_to_order_button_in_body(self):
         self.scroll_to(MainPaigeLocators.BODY_ORDER_BUTTON)
-        WebDriverWait(browser, 10).until(
-            expected_conditions.element_to_be_clickable(MainPaigeLocators.BODY_ORDER_BUTTON))
+        self.find_element_located(MainPaigeLocators.BODY_ORDER_BUTTON)
 
     @allure.step('Кликнуть по кнопке "Заказать" в body')
-    def click_on_order_button_in_body(self, browser):
+    def click_on_order_button_in_body(self):
+        self.scroll_to_order_button_in_body()
         self.click_on_element(MainPaigeLocators.BODY_ORDER_BUTTON)
-        WebDriverWait(browser, 10).until(
-            expected_conditions.presence_of_element_located(OrderPageLocators.HEADING_ON_ORDER_PAGE))
+        self.find_element_located(OrderPageLocators.HEADING_ON_ORDER_PAGE)
+
 
     @allure.step('Проскролить до секции вопросов')
     def scroll_to_question_section(self):

@@ -14,7 +14,7 @@ class TestOrderPage:
         order_page.open_order_url()
         order_page.fill_client_info()
         order_page.fill_metro_field_by_click()
-        order_page.click_on_button_forward(browser)
+        order_page.click_on_button_forward()
         assert order_page.find_text(AboutRentLocators.HEADING_ON_ABOUT_PAGE) == ExT.heading_about_rent, 'Произошёл некорректный редирект на страницу' \
                                                                                                                 ' про аренду '
 
@@ -23,7 +23,7 @@ class TestOrderPage:
     def test_validate_error_by_input_first_name(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
-        order_page.click_on_button_forward_for_validate_error(browser)
+        order_page.click_on_button_forward_for_validate_error()
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_FIRST_NAME) == ExT.messege_validate_first_name,  'нет ошибки о валидации' \
                                                                                                                             ' поля имя '
 
@@ -32,7 +32,7 @@ class TestOrderPage:
     def test_validate_error_by_input_second_name(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
-        order_page.click_on_button_forward_for_validate_error(browser)
+        order_page.click_on_button_forward_for_validate_error()
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_SECOND_NAME) == ExT.messege_validate_second_name,  'нет ошибки о валидации' \
                                                                                                                             ' поля фамилия '
 
@@ -41,7 +41,7 @@ class TestOrderPage:
     def test_validate_error_by_input_delivery_address(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
-        order_page.click_on_button_forward_for_validate_error(browser)
+        order_page.click_on_button_forward_for_validate_error()
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_DELIVERY_ADDRESS) == ExT.messege_validate_delivery_address,  'нет ошибки о валидации' \
                                                                                                                             ' поля адреса '
 
@@ -50,7 +50,7 @@ class TestOrderPage:
     def test_validate_error_by_input_metro_station(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
-        order_page.click_on_button_forward_for_validate_error(browser)
+        order_page.click_on_button_forward_for_validate_error()
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_METRO_STATION) == ExT.messege_validate_metro_station, 'нет ошибки о валидации' \
                                                                                                                         ' поля станции метро '
 
@@ -59,6 +59,6 @@ class TestOrderPage:
     def test_validate_error_by_input_phone_number(self, browser):
         order_page = OrderPage(browser)
         order_page.open_order_url()
-        order_page.click_on_button_forward_for_validate_error(browser)
+        order_page.click_on_button_forward_for_validate_error()
         assert order_page.find_text(OrderPageLocators.VALIDATE_ERROR_PHONE_NUMBER) == ExT.messege_validate_phone_number, 'нет ошибки о валидации' \
                                                                                                                       ' поля номера телефона'

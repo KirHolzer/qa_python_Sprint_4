@@ -10,7 +10,7 @@ class TestMainPage:
     def test_accept_cookies_succsesfully(self, browser):
         main_page = MainPage(browser)
         main_page.open_main_url()
-        main_page.close_cookie(browser)
+        main_page.close_cookie()
         assert main_page.is_cookie_not_visible(), "Блок cookies не пропал с экрана"
 
     @allure.title('Проверка перехода из главной страницы на старницу "Яндекса" по клику на логотип ')
@@ -35,7 +35,7 @@ class TestMainPage:
     def test_click_on_order_button_in_header(self, browser):
         main_page = MainPage(browser)
         main_page.open_main_url()
-        main_page.click_on_order_button_in_heeader(browser)
+        main_page.click_on_order_button_in_header()
         assert browser.current_url == TestUrls.OrderPageUrl, 'Произошёл некорректный редирект на страницу ' \
                                                                        'заказа "Яндекс.Самокат" из хеддера'
 
@@ -44,8 +44,7 @@ class TestMainPage:
     def test_click_on_order_button_in_body(self, browser):
         main_page = MainPage(browser)
         main_page.open_main_url()
-        main_page.close_cookie(browser)
-        main_page.scroll_to_order_button_in_body(browser)
-        main_page.click_on_order_button_in_body(browser)
+        main_page.close_cookie()
+        main_page.click_on_order_button_in_body()
         assert browser.current_url == TestUrls.OrderPageUrl, 'Произошёл некорректный редирект на страницу ' \
                                                                        'заказа "Яндекс.Самокат" из body'
