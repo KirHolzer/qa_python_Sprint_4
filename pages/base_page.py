@@ -31,16 +31,20 @@ class BasePage:
 
     def scroll_to(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView();", self.find_element(element))
+        self.find_element_located(element)
 
     def find_text(self, element):
         return self.find_element(element).text
 
 
-    def find_element_located(self, locator, time=10):
-        return WebDriverWait(self.driver, time).until(expected_conditions.presence_of_element_located(locator))
+    def find_element_located(self, element, time=10):
+        return WebDriverWait(self.driver, time).until(expected_conditions.presence_of_element_located(element))
 
-    def find_element_not_located(self, locator, time=10):
-        return WebDriverWait(self.driver, time).until_not(expected_conditions.presence_of_element_located(locator))
+    def find_element_clickable(self, element, time=10):
+        return WebDriverWait(self.driver, time).until(expected_conditions.element_to_be_clickable(element))
 
-    def find_elements_located(self, locator, time=10):
-        return WebDriverWait(self.driver, time).until(expected_conditions.presence_of_all_elements_located(locator))
+    def find_element_not_located(self, element, time=10):
+        return WebDriverWait(self.driver, time).until_not(expected_conditions.presence_of_element_located(element))
+
+    def find_elements_located(self, element, time=10):
+        return WebDriverWait(self.driver, time).until(expected_conditions.presence_of_all_elements_located(element))

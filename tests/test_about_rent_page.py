@@ -67,7 +67,6 @@ class TestAboutRentPage:
         order_page = OrderPage(browser)
         about_rent_page = AboutRentPage(browser)
         main_page.open_main_url()
-        main_page.scroll_to_order_button_in_body()
         main_page.click_on_order_button_in_body()
         order_page.open_about_rent_page()
         about_rent_page.click_yes_button_on_confirmation_modal_window()

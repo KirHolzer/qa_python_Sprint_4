@@ -38,8 +38,10 @@ class MainPage(BasePage):
 
     @allure.step('Проскролить до кнопки заказать в body')
     def scroll_to_order_button_in_body(self):
+        self.close_cookie()
         self.scroll_to(MainPaigeLocators.BODY_ORDER_BUTTON)
         self.find_element_located(MainPaigeLocators.BODY_ORDER_BUTTON)
+        self.find_element_clickable(MainPaigeLocators.BODY_ORDER_BUTTON)
 
     @allure.step('Кликнуть по кнопке "Заказать" в body')
     def click_on_order_button_in_body(self):

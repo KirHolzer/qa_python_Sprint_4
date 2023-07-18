@@ -44,7 +44,6 @@ class TestMainPage:
     def test_click_on_order_button_in_body(self, browser):
         main_page = MainPage(browser)
         main_page.open_main_url()
-        main_page.close_cookie()
         main_page.click_on_order_button_in_body()
         assert browser.current_url == TestUrls.OrderPageUrl, 'Произошёл некорректный редирект на страницу ' \
                                                                        'заказа "Яндекс.Самокат" из body'
